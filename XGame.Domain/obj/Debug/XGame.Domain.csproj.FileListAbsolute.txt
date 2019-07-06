@@ -1,0 +1,6 @@
+C:\Users\ander\Desktop\projetos-lima\C#\XGame\XGame.Domain\bin\Debug\XGame.Domain.dll
+C:\Users\ander\Desktop\projetos-lima\C#\XGame\XGame.Domain\bin\Debug\XGame.Domain.pdb
+C:\Users\ander\Desktop\projetos-lima\C#\XGame\XGame.Domain\obj\Debug\XGame.Domain.csprojAssemblyReference.cache
+C:\Users\ander\Desktop\projetos-lima\C#\XGame\XGame.Domain\obj\Debug\XGame.Domain.csproj.CoreCompileInputs.cache
+C:\Users\ander\Desktop\projetos-lima\C#\XGame\XGame.Domain\obj\Debug\XGame.Domain.dll
+C:\Users\ander\Desktop\projetos-lima\C#\XGame\XGame.Domain\obj\Debug\XGame.Domain.pdb
