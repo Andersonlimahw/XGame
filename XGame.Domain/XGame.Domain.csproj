@@ -41,18 +41,29 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Arguments\Jogador\AdicionarJogadorRequest.cs" />
+    <Compile Include="Arguments\Jogador\AdicionarJogadorResponse.cs" />
+    <Compile Include="Arguments\Jogador\AutenticarJogadorRequest.cs" />
+    <Compile Include="Arguments\Jogador\AutenticarJogadorResponse.cs" />
     <Compile Include="Entities\Jogador.cs" />
     <Compile Include="Entities\Jogo.cs" />
     <Compile Include="Entities\JogoPlataforma.cs" />
     <Compile Include="Entities\MeuJogo.cs" />
     <Compile Include="Entities\Plataforma.cs" />
     <Compile Include="Enum\EnumSituacaoJogador.cs" />
+    <Compile Include="Interfaces\Arguments\IResponse.cs" />
+    <Compile Include="Interfaces\Arguments\IRequest.cs" />
+    <Compile Include="Interfaces\Services\IServiceJogador.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\ServiceJogador.cs" />
     <Compile Include="ValueObjects\Email.cs" />
     <Compile Include="ValueObjects\Nome.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Diagrams\XGame.cd" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Interfaces\Repositories\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
