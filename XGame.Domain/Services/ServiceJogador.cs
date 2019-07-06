@@ -13,6 +13,12 @@ namespace XGame.Domain.Services
             _repositoryJogador = repositoryJogador;
         }
 
+        public ServiceJogador()
+        {
+
+        }
+
+
         public AdicionarJogadorResponse Adicionar(AdicionarJogadorRequest request)
         {
             Guid id = _repositoryJogador.Adicionar(request);
@@ -25,7 +31,40 @@ namespace XGame.Domain.Services
 
         public AutenticarJogadorResponse Autenticar(AutenticarJogadorRequest request)
         {
-            throw new System.NotImplementedException();
+            if (request == null) {
+                // Exception gera custo de processamento e afeta o desempenho
+                // TODO usar notificações.
+                throw new Exception("AutenticarJogadorRequest é obrigigatório!");
+            }
+
+            if (string.IsNullOrEmpty(request.Email))
+            {
+                throw new Exception("Informe um e-mail");
+            }
+
+            if (isEmail(request.Email))
+            {
+                throw new Exception("Informe um e-mail válido");
+            }
+
+            if (string.IsNullOrEmpty(request.Senha))
+            {
+                throw new Exception("Informe a senha.");
+            }
+
+            if (!string.IsNullOrEmpty(request.Senha) && request?.Senha.Length < 6)
+            {
+                throw new Exception("A Senha deve ter ao menos 6 dígitos.");
+            }
+
+            var response = _repositoryJogador.Autenticar(request);
+            return response;
+
+        }
+
+        private bool isEmail(string email)
+        {
+            return false;
         }
     }
 }

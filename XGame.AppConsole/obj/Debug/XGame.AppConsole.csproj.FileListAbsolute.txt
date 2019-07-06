@@ -1,0 +1,10 @@
+C:\Users\ander\Desktop\projetos-lima\C#\XGame\XGame.AppConsole\bin\Debug\XGame.AppConsole.exe.config
+C:\Users\ander\Desktop\projetos-lima\C#\XGame\XGame.AppConsole\bin\Debug\XGame.AppConsole.exe
+C:\Users\ander\Desktop\projetos-lima\C#\XGame\XGame.AppConsole\bin\Debug\XGame.AppConsole.pdb
+C:\Users\ander\Desktop\projetos-lima\C#\XGame\XGame.AppConsole\bin\Debug\XGame.Domain.dll
+C:\Users\ander\Desktop\projetos-lima\C#\XGame\XGame.AppConsole\bin\Debug\XGame.Domain.pdb
+C:\Users\ander\Desktop\projetos-lima\C#\XGame\XGame.AppConsole\obj\Debug\XGame.AppConsole.csprojAssemblyReference.cache
+C:\Users\ander\Desktop\projetos-lima\C#\XGame\XGame.AppConsole\obj\Debug\XGame.AppConsole.csproj.CoreCompileInputs.cache
+C:\Users\ander\Desktop\projetos-lima\C#\XGame\XGame.AppConsole\obj\Debug\XGame.AppConsole.csproj.CopyComplete
+C:\Users\ander\Desktop\projetos-lima\C#\XGame\XGame.AppConsole\obj\Debug\XGame.AppConsole.exe
+C:\Users\ander\Desktop\projetos-lima\C#\XGame\XGame.AppConsole\obj\Debug\XGame.AppConsole.pdb
