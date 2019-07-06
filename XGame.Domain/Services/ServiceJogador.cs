@@ -1,11 +1,16 @@
-﻿using System;
+﻿using prmToolkit.NotificationPattern;
+using prmToolkit.NotificationPattern.Extensions;
+using System;
 using XGame.Domain.Arguments.Jogador;
+using XGame.Domain.Entities;
 using XGame.Domain.Interfaces.Repositories;
 using XGame.Domain.Interfaces.Services;
+using XGame.Domain.Resources;
+using XGame.Domain.ValueObjects;
 
 namespace XGame.Domain.Services
 {
-    public class ServiceJogador : IServiceJogador
+    public class ServiceJogador : Notifiable,  IServiceJogador
     {
         private readonly IRepositoryJogador _repositoryJogador;
         public ServiceJogador(IRepositoryJogador repositoryJogador)
@@ -21,7 +26,13 @@ namespace XGame.Domain.Services
 
         public AdicionarJogadorResponse Adicionar(AdicionarJogadorRequest request)
         {
-            Guid id = _repositoryJogador.Adicionar(request);
+            Jogador jogador = new Jogador(request.Email, request.Senha)
+            {
+                Nome = request.Nome,
+                Status = Enum.EnumSituacaoJogador.EmAndamento
+            };
+
+            Guid id = _repositoryJogador.Adicionar(jogador);
             return new AdicionarJogadorResponse()
             {
                 Id = id,
@@ -32,39 +43,23 @@ namespace XGame.Domain.Services
         public AutenticarJogadorResponse Autenticar(AutenticarJogadorRequest request)
         {
             if (request == null) {
-                // Exception gera custo de processamento e afeta o desempenho
-                // TODO usar notificações.
-                throw new Exception("AutenticarJogadorRequest é obrigigatório!");
+                AddNotification("AutenticarJogadorRequest", Message.X0_E_OBRIGATORIO.ToFormat("AutenticarJogadorRequest"));
             }
 
-            if (string.IsNullOrEmpty(request.Email))
-            {
-                throw new Exception("Informe um e-mail");
+            var email = new Email(request?.Email);
+            var jogador = new Jogador(
+                email,
+                request.Senha
+            );
+
+            AddNotifications(jogador, email);
+
+            if (jogador.IsInvalid()) {
+                return null;
             }
 
-            if (isEmail(request.Email))
-            {
-                throw new Exception("Informe um e-mail válido");
-            }
-
-            if (string.IsNullOrEmpty(request.Senha))
-            {
-                throw new Exception("Informe a senha.");
-            }
-
-            if (!string.IsNullOrEmpty(request.Senha) && request?.Senha.Length < 6)
-            {
-                throw new Exception("A Senha deve ter ao menos 6 dígitos.");
-            }
-
-            var response = _repositoryJogador.Autenticar(request);
+            AutenticarJogadorResponse response = _repositoryJogador.Autenticar(jogador.Email.Endereco, jogador.Senha);  
             return response;
-
-        }
-
-        private bool isEmail(string email)
-        {
-            return false;
         }
     }
 }

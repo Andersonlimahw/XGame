@@ -4,3 +4,9 @@ C:\Users\ander\Desktop\projetos-lima\C#\XGame\XGame.Domain\obj\Debug\XGame.Domai
 C:\Users\ander\Desktop\projetos-lima\C#\XGame\XGame.Domain\obj\Debug\XGame.Domain.csproj.CoreCompileInputs.cache
 C:\Users\ander\Desktop\projetos-lima\C#\XGame\XGame.Domain\obj\Debug\XGame.Domain.dll
 C:\Users\ander\Desktop\projetos-lima\C#\XGame\XGame.Domain\obj\Debug\XGame.Domain.pdb
+C:\Users\ander\Desktop\projetos-lima\C#\XGame\XGame.Domain\bin\Debug\prmToolkit.NotificationPattern.dll
+C:\Users\ander\Desktop\projetos-lima\C#\XGame\XGame.Domain\bin\Debug\System.Diagnostics.DiagnosticSource.dll
+C:\Users\ander\Desktop\projetos-lima\C#\XGame\XGame.Domain\bin\Debug\System.Diagnostics.DiagnosticSource.xml
+C:\Users\ander\Desktop\projetos-lima\C#\XGame\XGame.Domain\obj\Debug\XGame.Domain.csproj.CopyComplete
+C:\Users\ander\Desktop\projetos-lima\C#\XGame\XGame.Domain\obj\Debug\XGame.Domain.Resources.Message.resources
+C:\Users\ander\Desktop\projetos-lima\C#\XGame\XGame.Domain\obj\Debug\XGame.Domain.csproj.GenerateResource.cache

@@ -8,3 +8,6 @@ C:\Users\ander\Desktop\projetos-lima\C#\XGame\XGame.AppConsole\obj\Debug\XGame.A
 C:\Users\ander\Desktop\projetos-lima\C#\XGame\XGame.AppConsole\obj\Debug\XGame.AppConsole.csproj.CopyComplete
 C:\Users\ander\Desktop\projetos-lima\C#\XGame\XGame.AppConsole\obj\Debug\XGame.AppConsole.exe
 C:\Users\ander\Desktop\projetos-lima\C#\XGame\XGame.AppConsole\obj\Debug\XGame.AppConsole.pdb
+C:\Users\ander\Desktop\projetos-lima\C#\XGame\XGame.AppConsole\bin\Debug\prmToolkit.NotificationPattern.dll
+C:\Users\ander\Desktop\projetos-lima\C#\XGame\XGame.AppConsole\bin\Debug\System.Diagnostics.DiagnosticSource.dll
+C:\Users\ander\Desktop\projetos-lima\C#\XGame\XGame.AppConsole\bin\Debug\System.Diagnostics.DiagnosticSource.xml
