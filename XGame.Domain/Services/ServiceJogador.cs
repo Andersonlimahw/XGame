@@ -26,11 +26,7 @@ namespace XGame.Domain.Services
 
         public AdicionarJogadorResponse Adicionar(AdicionarJogadorRequest request)
         {
-            Jogador jogador = new Jogador(request.Email, request.Senha)
-            {
-                Nome = request.Nome,
-                Status = Enum.EnumSituacaoJogador.EmAndamento
-            };
+            Jogador jogador = new Jogador(request.Email, request.Senha, request.Nome);
 
             Guid id = _repositoryJogador.Adicionar(jogador);
             return new AdicionarJogadorResponse()
@@ -46,10 +42,12 @@ namespace XGame.Domain.Services
                 AddNotification("AutenticarJogadorRequest", Message.X0_E_OBRIGATORIO.ToFormat("AutenticarJogadorRequest"));
             }
 
-            var email = new Email(request?.Email);
-            var jogador = new Jogador(
+            Email email = new Email(request?.Email);
+            Nome nome = new Nome("Anderson", "Lima");
+            Jogador jogador = new Jogador(
                 email,
-                request.Senha
+                request.Senha, 
+                nome
             );
 
             AddNotifications(jogador, email);

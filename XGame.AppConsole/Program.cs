@@ -18,7 +18,7 @@ namespace XGame.AppConsole
                 Senha = "123456"
             };
             Console.WriteLine("Instância da request criada.");
-            Console.WriteLine($"Email: {request.Email} ");
+            Console.WriteLine($"Email: {request.Email}, Senha: {request.Senha} ");
 
             var response = service.Autenticar(request);
             //var invalidRequest = service.Autenticar(null);

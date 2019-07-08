@@ -185,6 +185,7 @@
     <Compile Include="Entities\MeuJogo.cs" />
     <Compile Include="Entities\Plataforma.cs" />
     <Compile Include="Enum\EnumSituacaoJogador.cs" />
+    <Compile Include="Extensions\StringExtension.cs" />
     <Compile Include="Interfaces\Arguments\IResponse.cs" />
     <Compile Include="Interfaces\Arguments\IRequest.cs" />
     <Compile Include="Interfaces\Repositories\IRepositoryJogador.cs" />
