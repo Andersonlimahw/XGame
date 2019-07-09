@@ -7,6 +7,12 @@ namespace XGame.Domain.Arguments.Jogador
     public class AlterarJogadorResponse: IResponse
     {
         public Guid Id { get; set; }
+
+        public string PrimeiroNome { get; set; }
+
+        public string UltimoNome { get; set; }
+        public string Email { get; set; }
+
         public string Message { get; set; }
 
         // Cast, coversão explicita
@@ -15,6 +21,9 @@ namespace XGame.Domain.Arguments.Jogador
             return new AlterarJogadorResponse()
             {
                Id = entity.Id,
+               PrimeiroNome = entity.Nome.PrimeiroNome,
+               UltimoNome = entity.Nome.UltimoNome,
+               Email = entity.Email.Endereco,
                Message = $"Jogador {entity.Nome.PrimeiroNome}, adicionadao com sucesso!"
             };
         }

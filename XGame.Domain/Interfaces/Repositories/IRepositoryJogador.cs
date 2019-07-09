@@ -11,8 +11,11 @@ namespace XGame.Domain.Interfaces.Repositories
 
         Jogador Adicionar(Jogador jogador);
 
-        Jogador Alterar(Jogador jogador);
+        void Alterar(Jogador jogador);
 
-        IEnumerable<Jogador> ListarJogador();
+        IEnumerable<Jogador> Listar();
+
+        Jogador ObterPorId(Guid Id);
+
     }
 }
