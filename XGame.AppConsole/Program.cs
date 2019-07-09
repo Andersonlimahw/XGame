@@ -22,8 +22,7 @@ namespace XGame.AppConsole
             };
 
             var responseAdicionar = service.Adicionar(requestAdicionar);
-
-            Console.WriteLine($"Autenticando jogador com Id -> {responseAdicionar.Id}");
+            Console.WriteLine($"{responseAdicionar.Message}");
             AutenticarJogadorRequest request = new AutenticarJogadorRequest()
             {
                 Email = requestAdicionar.Email,
@@ -39,7 +38,12 @@ namespace XGame.AppConsole
             {
                 Console.WriteLine($"Message:  {x.Message}");
             });
-            
+
+            Console.WriteLine($"Listando jogadores");
+            service.ListarJogador().ToList().ForEach(jogador => {
+                Console.WriteLine($"Jogador -> {jogador.NomeCompleto}, Status: {jogador.Status}");
+            });
+
             Console.ReadKey();
 
 

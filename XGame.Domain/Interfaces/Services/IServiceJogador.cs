@@ -1,4 +1,5 @@
-﻿using XGame.Domain.Arguments.Jogador;
+﻿using System.Collections.Generic;
+using XGame.Domain.Arguments.Jogador;
 
 namespace XGame.Domain.Interfaces.Services
 {
@@ -6,6 +7,10 @@ namespace XGame.Domain.Interfaces.Services
     {
         AutenticarJogadorResponse Autenticar(AutenticarJogadorRequest request);
 
-        AdicionarJogadorResponse Adicionar(AdicionarJogadorRequest request);
+        AlterarJogadorResponse Adicionar(AdicionarJogadorRequest request);
+
+        AlterarJogadorResponse Alterar(AlterarJogadorRequest request);
+
+        IEnumerable<JogadorResponse> ListarJogador();
     }
 }

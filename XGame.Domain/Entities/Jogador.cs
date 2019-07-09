@@ -24,6 +24,7 @@ namespace XGame.Domain.Entities
             
             AddNotifications(nome, email);
         }
+        
 
         public Guid Id { get; set; }
         public Nome Nome { get; private set; }
@@ -32,5 +33,10 @@ namespace XGame.Domain.Entities
         public string Senha { get; private set; }
 
         public EnumSituacaoJogador Status { get; private set; }
+
+        internal string retornaNomeCompleto()
+        {
+            return $"{Nome.PrimeiroNome} {Nome.UltimoNome}";
+        }
     }
 }

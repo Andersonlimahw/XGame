@@ -1,6 +1,7 @@
-﻿using prmToolkit.NotificationPattern;
+﻿using System.Collections.Generic;
+using System.Linq;
+using prmToolkit.NotificationPattern;
 using prmToolkit.NotificationPattern.Extensions;
-using System;
 using XGame.Domain.Arguments.Jogador;
 using XGame.Domain.Entities;
 using XGame.Domain.Interfaces.Repositories;
@@ -24,7 +25,7 @@ namespace XGame.Domain.Services
         }
 
 
-        public AdicionarJogadorResponse Adicionar(AdicionarJogadorRequest request)
+        public AlterarJogadorResponse Adicionar(AdicionarJogadorRequest request)
         {
             Email email = new Email(request.Email);
             Nome nome = new Nome(request.PrimeiroNome, request.UltimoNome);
@@ -36,7 +37,7 @@ namespace XGame.Domain.Services
             }
 
             jogador = _repositoryJogador.Adicionar(jogador);
-            return (AdicionarJogadorResponse)jogador;
+            return (AlterarJogadorResponse)jogador;
 
         }
 
@@ -62,6 +63,16 @@ namespace XGame.Domain.Services
 
             jogador = _repositoryJogador.Autenticar(jogador.Email.Endereco, jogador.Senha);
             return (AutenticarJogadorResponse)jogador;
+        }
+
+        public AlterarJogadorResponse Alterar(AlterarJogadorRequest request)
+        {
+            throw new System.NotImplementedException();
+        }
+
+        public IEnumerable<JogadorResponse> ListarJogador()
+        {
+            return _repositoryJogador.ListarJogador().ToList().Select(jogador => (JogadorResponse)jogador).ToList();
         }
     }
 }

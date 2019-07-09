@@ -10,7 +10,7 @@ namespace XGame.Domain.Arguments.Jogador
         public string Email { get; set; }
         public int Status { get; set; }
 
-        // Cast, operção explicita
+        // Cast, coversão explicita
         public static explicit operator AutenticarJogadorResponse(Entities.Jogador entity)
         {
             return new AutenticarJogadorResponse()
