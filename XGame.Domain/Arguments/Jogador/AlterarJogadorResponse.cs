@@ -15,7 +15,7 @@ namespace XGame.Domain.Arguments.Jogador
 
         public string Message { get; set; }
 
-        // Cast, coversão explicita
+        // Cast, conversão explicita
         public static explicit operator AlterarJogadorResponse(Entities.Jogador entity)
         {
             return new AlterarJogadorResponse()
