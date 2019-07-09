@@ -13,29 +13,33 @@ namespace XGame.AppConsole
             var service = new ServiceJogador();
             Console.WriteLine("Instância do serviço criada.");
 
-            AutenticarJogadorRequest request = new AutenticarJogadorRequest() {
-                Email = "andeson@lima.com",
-                Senha = "123456"
-            };
-            Console.WriteLine("Instância da request criada.");
-            Console.WriteLine($"Email: {request.Email}, Senha: {request.Senha} ");
-
-            //var response = service.Autenticar(request);
-            //var invalidRequest = service.Autenticar(null);
-
+            Console.WriteLine("Adicionando jogador...");
             AdicionarJogadorRequest requestAdicionar = new AdicionarJogadorRequest() {
                 Email = "anderson.lima@lemontech.com",
                 PrimeiroNome = "Anderson",
                 UltimoNome = "Lima",
                 Senha = "123456"
             };
-            var response = service.Adicionar(requestAdicionar);
+
+            var responseAdicionar = service.Adicionar(requestAdicionar);
+
+            Console.WriteLine($"Autenticando jogador com Id -> {responseAdicionar.Id}");
+            AutenticarJogadorRequest request = new AutenticarJogadorRequest()
+            {
+                Email = requestAdicionar.Email,
+                Senha = requestAdicionar.Senha
+            };
+            
+            Console.WriteLine($"Email: {request.Email}, Senha: {request.Senha} ");
+            var response = service.Autenticar(request);
+            Console.WriteLine("Jogador autenticado com sucesso!");
+
             Console.WriteLine($" Serviço é valido -> {service.IsValid()}");
-             
             service.Notifications.ToList().ForEach(x =>
             {
                 Console.WriteLine($"Message:  {x.Message}");
             });
+            
             Console.ReadKey();
 
 

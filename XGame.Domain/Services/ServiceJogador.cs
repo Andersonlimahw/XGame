@@ -30,12 +30,14 @@ namespace XGame.Domain.Services
             Nome nome = new Nome(request.PrimeiroNome, request.UltimoNome);
             Jogador jogador = new Jogador(email, request.Senha, nome);
 
-            Guid id = _repositoryJogador.Adicionar(jogador);
-            return new AdicionarJogadorResponse()
+            if (this.IsInvalid())
             {
-                Id = id,
-                Message = "Operação realizada com sucesso!"
-            };
+                return null;
+            }
+
+            jogador = _repositoryJogador.Adicionar(jogador);
+            return (AdicionarJogadorResponse)jogador;
+
         }
 
         public AutenticarJogadorResponse Autenticar(AutenticarJogadorRequest request)
@@ -58,8 +60,8 @@ namespace XGame.Domain.Services
                 return null;
             }
 
-            AutenticarJogadorResponse response = _repositoryJogador.Autenticar(jogador.Email.Endereco, jogador.Senha);  
-            return response;
+            jogador = _repositoryJogador.Autenticar(jogador.Email.Endereco, jogador.Senha);
+            return (AutenticarJogadorResponse)jogador;
         }
     }
 }
