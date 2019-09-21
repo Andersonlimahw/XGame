@@ -9,7 +9,7 @@ namespace XGame.Infra.Persistence.Map
     {
         public MapJogador()
         {
-            ToTable("jogador");
+            ToTable("JOGADOR");
 
             Property(p => p.Email.Endereco).HasMaxLength(200).IsRequired().HasColumnAnnotation("Index",
                 new IndexAnnotation(
@@ -19,7 +19,7 @@ namespace XGame.Infra.Persistence.Map
                     })
                 ).HasColumnName("EMAIL");
 
-            // Caso não seja feito o mapeamento o entity faz um mapeamento automático porém com seu pr
+            // Caso não seja feito o mapeamento o entity faz um mapeamento automático porém com seu próprio padrão
             Property(p => p.Nome.PrimeiroNome).HasMaxLength(50).IsRequired().HasColumnName("PRIMEIRO_NOME");
             Property(p => p.Email.Endereco).HasMaxLength(50).IsRequired().HasColumnName("ULTIMO_NOME");
             Property(p => p.Senha).HasMaxLength(100).IsRequired().HasColumnName("SENHA");
