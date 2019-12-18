@@ -26,3 +26,8 @@ C:\Users\ander\Desktop\projetos-lima\C#\XGame\XGame.Domain\obj\Debug\XGame.Domai
 C:\Users\ander\Desktop\projetos-lima\C#\XGame\XGame.Domain\obj\Debug\XGame.Domain.csproj.CopyComplete
 C:\Users\ander\Desktop\projetos-lima\C#\XGame\XGame.Domain\obj\Debug\XGame.Domain.dll
 C:\Users\ander\Desktop\projetos-lima\C#\XGame\XGame.Domain\obj\Debug\XGame.Domain.pdb
+C:\Users\ander\Desktop\projetos-lima\C#\XGame\XGame.Domain\bin\Debug\XGame.Domain.dll.config
+C:\Users\ander\Desktop\projetos-lima\C#\XGame\XGame.Domain\bin\Debug\EntityFramework.dll
+C:\Users\ander\Desktop\projetos-lima\C#\XGame\XGame.Domain\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\ander\Desktop\projetos-lima\C#\XGame\XGame.Domain\bin\Debug\EntityFramework.xml
+C:\Users\ander\Desktop\projetos-lima\C#\XGame\XGame.Domain\bin\Debug\EntityFramework.SqlServer.xml

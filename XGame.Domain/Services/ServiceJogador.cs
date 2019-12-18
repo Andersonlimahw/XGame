@@ -21,10 +21,6 @@ namespace XGame.Domain.Services
         {
             _repositoryJogador = repositoryJogador;
         }
-        public ServiceJogador()
-        {
-
-        }
 
 
         public AdicionarJogadorResponse Adicionar(AdicionarJogadorRequest request)
