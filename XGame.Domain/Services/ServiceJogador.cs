@@ -1,7 +1,9 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using prmToolkit.NotificationPattern;
 using prmToolkit.NotificationPattern.Extensions;
+using XGame.Domain.Arguments.Base;
 using XGame.Domain.Arguments.Jogador;
 using XGame.Domain.Entities;
 using XGame.Domain.Enum;
@@ -61,8 +63,8 @@ namespace XGame.Domain.Services
             if (jogador.IsInvalid()) {
                 return null;
             }
-
-            jogador = _repositoryJogador.Autenticar(jogador.Email.Endereco, jogador.Senha);
+            // Autentica
+            jogador = _repositoryJogador.ObterPor(x => x.Email.Endereco ==  jogador.Email.Endereco, x => x.Senha == jogador.Senha);
             return (AutenticarJogadorResponse)jogador;
         }
 
@@ -91,7 +93,7 @@ namespace XGame.Domain.Services
                 return null;
             }
             // Salva alterações no banco de dados e retorna o objeto atualizado.
-            _repositoryJogador.Alterar(jogador);
+            _repositoryJogador.Editar(jogador);
             return (AlterarJogadorResponse)jogador;
         }
 
@@ -102,6 +104,18 @@ namespace XGame.Domain.Services
                 .ToList()
                 .Select(jogador => (JogadorResponse)jogador)
                 .ToList();
+        }
+
+        public ResponseBase Excluir(Guid id)
+        {
+            Jogador jogador = _repositoryJogador.ObterPorId(id);
+            if(jogador == null)
+            {
+                AddNotification("Id", "Dados não encontrados");
+                return null;
+            }
+            _repositoryJogador.Remover(jogador);
+            return new ResponseBase();
         }
     }
 }

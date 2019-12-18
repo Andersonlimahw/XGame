@@ -1,16 +1,16 @@
 ﻿using prmToolkit.NotificationPattern;
 using System;
+using XGame.Domain.Entities.Base;
 using XGame.Domain.Enum;
 using XGame.Domain.Extensions;
 using XGame.Domain.ValueObjects;
 
 namespace XGame.Domain.Entities
 {
-    public class Jogador : Notifiable
+    public class Jogador : EntityBase
     {
         public Jogador(Email email, string senha, Nome nome)
         {
-            Id = Guid.NewGuid();
             Email = email;
             Senha = senha;
             Nome =  nome;
