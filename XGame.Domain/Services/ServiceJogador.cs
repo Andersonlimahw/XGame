@@ -14,7 +14,7 @@ using XGame.Domain.ValueObjects;
 
 namespace XGame.Domain.Services
 {
-    public class ServiceJogador : Notifiable,  IServiceJogador
+    public class ServiceJogador : Notifiable, IServiceJogador
     {
         private readonly IRepositoryJogador _repositoryJogador;
         public ServiceJogador(IRepositoryJogador repositoryJogador)

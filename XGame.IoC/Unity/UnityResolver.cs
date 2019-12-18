@@ -1,5 +1,4 @@
-﻿using Microsoft.Practices.Unity;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Web.Http.Dependencies;
 using Unity;
@@ -27,6 +26,7 @@ namespace XGame.IoC.Unity
             }
             catch (ResolutionFailedException ex)
             {
+                Console.WriteLine($"Erro ao obter serviço {ex}");
                 return null;
             }
         }
@@ -37,8 +37,9 @@ namespace XGame.IoC.Unity
             {
                 return container.ResolveAll(serviceType);
             }
-            catch (ResolutionFailedException)
+            catch (ResolutionFailedException ex)
             {
+                Console.WriteLine($"Erro ao obter serviço {ex}");
                 return new List<object>();
             }
         }

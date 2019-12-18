@@ -10,6 +10,7 @@ using XGame.Domain.Services;
 using XGame.Infra.Persistence;
 using XGame.Infra.Persistence.Repositories;
 using XGame.Infra.Persistence.Repositories.Base;
+using XGame.Infra.Transactions;
 //using XGame.Infra.Transactions;
 
 namespace XGame.IoC.Unity
@@ -21,7 +22,7 @@ namespace XGame.IoC.Unity
 
             container.RegisterType<DbContext, XGameContext>(new HierarchicalLifetimeManager());
             //UnitOfWork
-            //container.RegisterType<IUnitOfWork, UnitOfWork>(new HierarchicalLifetimeManager());
+            container.RegisterType<IUnitOfWork, UnitOfWork>(new HierarchicalLifetimeManager());
             container.RegisterType<INotifiable, Notifiable>(new HierarchicalLifetimeManager());
 
             //Serviço de Domain
