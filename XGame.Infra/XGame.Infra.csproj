@@ -52,8 +52,18 @@
     <Compile Include="Migrations\201909211017443_CriandoBanco.Designer.cs">
       <DependentUpon>201909211017443_CriandoBanco.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201912181343146_MapeamentoPlataforma.cs" />
+    <Compile Include="Migrations\201912181343146_MapeamentoPlataforma.Designer.cs">
+      <DependentUpon>201912181343146_MapeamentoPlataforma.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201912181345430_MapeamentoPlataforma1.cs" />
+    <Compile Include="Migrations\201912181345430_MapeamentoPlataforma1.Designer.cs">
+      <DependentUpon>201912181345430_MapeamentoPlataforma1.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Persistence\Map\MapPlataforma.cs" />
     <Compile Include="Persistence\Map\MapJogador.cs" />
+    <Compile Include="Persistence\Repositories\RepositoryJogador.cs" />
     <Compile Include="Persistence\XGameContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -61,9 +71,7 @@
     <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Persistence\Repositories\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <ProjectReference Include="..\XGame.Domain\XGame.Domain.csproj">
       <Project>{3A987E12-3CD7-4413-B63D-025447BC20E0}</Project>
@@ -73,6 +81,12 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201909211017443_CriandoBanco.resx">
       <DependentUpon>201909211017443_CriandoBanco.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201912181343146_MapeamentoPlataforma.resx">
+      <DependentUpon>201912181343146_MapeamentoPlataforma.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201912181345430_MapeamentoPlataforma1.resx">
+      <DependentUpon>201912181345430_MapeamentoPlataforma1.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
