@@ -1,11 +1,12 @@
 ﻿using System;
 using System.Linq;
 using XGame.Domain.Arguments.Jogador;
+using XGame.Domain.Interfaces.Repositories;
 using XGame.Domain.Services;
 
 namespace XGame.AppConsole
 {
-    class Program
+    public class Program
     {
         static void Main(string[] args)
         {

@@ -21,7 +21,6 @@ namespace XGame.Domain.Services
         {
             _repositoryJogador = repositoryJogador;
         }
-
         public ServiceJogador()
         {
 
