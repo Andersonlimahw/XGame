@@ -5,6 +5,7 @@ using prmToolkit.NotificationPattern;
 using prmToolkit.NotificationPattern.Extensions;
 using XGame.Domain.Arguments.Base;
 using XGame.Domain.Arguments.Jogador;
+using XGame.Domain.Arguments.Jogo;
 using XGame.Domain.Entities;
 using XGame.Domain.Enum;
 using XGame.Domain.Interfaces.Repositories;
@@ -17,6 +18,8 @@ namespace XGame.Domain.Services
     public class ServiceJogador : Notifiable, IServiceJogador
     {
         private readonly IRepositoryJogador _repositoryJogador;
+
+
         public ServiceJogador(IRepositoryJogador repositoryJogador)
         {
             _repositoryJogador = repositoryJogador;

@@ -190,6 +190,12 @@
     <Compile Include="Arguments\Jogador\AutenticarJogadorRequest.cs" />
     <Compile Include="Arguments\Jogador\AutenticarJogadorResponse.cs" />
     <Compile Include="Arguments\Jogador\JogadorResponse.cs" />
+    <Compile Include="Arguments\Jogo\JogoResponse.cs" />
+    <Compile Include="Arguments\Jogo\AlterarJogoRequest.cs" />
+    <Compile Include="Arguments\Jogo\AdicionarJogoRequest.cs" />
+    <Compile Include="Arguments\Jogo\AlterarJogoResponse.cs" />
+    <Compile Include="Arguments\Jogo\ExcluirJogoResponse.cs" />
+    <Compile Include="Arguments\Jogo\AdicionarJogoResponse.cs" />
     <Compile Include="Arguments\Plataforma\AdicionarPlataformaRequest.cs" />
     <Compile Include="Arguments\Plataforma\AdicionarPlataformaResponse.cs" />
     <Compile Include="Entities\Base\EntityBase.cs" />
@@ -204,7 +210,9 @@
     <Compile Include="Interfaces\Arguments\IRequest.cs" />
     <Compile Include="Interfaces\Repositories\Base\IRepositoryBase.cs" />
     <Compile Include="Interfaces\Repositories\Base\IServiceBase.cs" />
+    <Compile Include="Interfaces\Repositories\IRepositoryJogo.cs" />
     <Compile Include="Interfaces\Repositories\IRepositoryJogador.cs" />
+    <Compile Include="Interfaces\Services\IServiceJogo.cs" />
     <Compile Include="Interfaces\Services\IServicePlataforma.cs" />
     <Compile Include="Interfaces\Services\IServiceJogador.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -213,6 +221,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Message.resx</DependentUpon>
     </Compile>
+    <Compile Include="Services\ServiceJogo.cs" />
     <Compile Include="Services\ServiceJogador.cs" />
     <Compile Include="ValueObjects\Email.cs" />
     <Compile Include="ValueObjects\Nome.cs" />
