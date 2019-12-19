@@ -26,6 +26,11 @@ namespace XGame.Domain.Services
 
         public AdicionarJogoResponse Adicionar(AdicionarJogoRequest request)
         {
+            if (request == null)
+            {
+                AddNotification("AdicionarJogoResponse", "É obrigatório!");
+            }
+
             Jogo jogo = new Jogo(
                 request.Nome, 
                 request.Descricao, 
@@ -49,7 +54,34 @@ namespace XGame.Domain.Services
 
         public AlterarJogoResponse Alterar(AlterarJogoRequest request)
         {
-            throw new NotImplementedException();
+            if (request == null)
+            {
+                AddNotification("AlterarJogoResponse", "É obrigatório!");
+            }
+
+            Jogo jogo = _repositoryJogo.ObterPorId(request.Id);
+            if(jogo == null)
+            {
+                AddNotification("Id", $"Id {request.Id} - Não encontrado");
+                return null;
+            }
+
+            jogo.Alterar(
+                request.Nome,
+                request.Descricao,
+                request.Produtora,
+                request.Distribuidora,
+                request.Genero,
+                request.Site);
+
+            if(this.IsInvalid())
+            {
+                return null;
+            }
+
+            _repositoryJogo.Editar(jogo);
+
+            return (AlterarJogoResponse)jogo;
         }
 
         public ExcluirJogoResponse Excluir(Guid id)

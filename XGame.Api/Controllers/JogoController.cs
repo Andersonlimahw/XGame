@@ -36,6 +36,22 @@ namespace XGame.Api.Controllers
             }
         }
 
+        [Route("Alterar")]
+        [HttpPut]
+        public async Task<HttpResponseMessage> Alterar(AlterarJogoRequest request)
+        {
+            try
+            {
+                var response = _serviceJogo.Alterar(request);
+
+                return await ResponseAsync(response, _serviceJogo);
+            }
+            catch (Exception ex)
+            {
+                return await ResponseExceptionAsync(ex);
+            }
+        }
+
         [Route("Listar")]
         [HttpGet]
         public async Task<HttpResponseMessage> Listar()
