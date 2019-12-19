@@ -50,6 +50,22 @@ namespace XGame.Api.Controllers
                 return await ResponseExceptionAsync(ex);
             }
         }
+      
+        [Route("Filtrar")]
+        [HttpGet]
+        public async Task<HttpResponseMessage> Filtrar(string filtro, string valor)
+        {
+            try
+            {
+                var response = _serviceJogador.Filtrar(filtro, valor);
+
+                return await ResponseAsync(response, _serviceJogador);
+            }
+            catch (Exception ex)
+            {
+                return await ResponseExceptionAsync(ex);
+            }
+        }
 
 
     }

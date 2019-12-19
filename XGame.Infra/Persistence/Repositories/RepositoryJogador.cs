@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using XGame.Domain.Arguments.Jogador;
 using XGame.Domain.Entities;
+using XGame.Domain.Enum;
 using XGame.Domain.Interfaces.Repositories;
 using XGame.Infra.Persistence.Repositories.Base;
 
@@ -17,7 +19,7 @@ namespace XGame.Infra.Persistence.Repositories
         }
 
 
-        public List<Jogador> Filtrar(string filtro, string valor)
+        public List<JogadorResponse> Filtrar(string filtro, string valor)
         {
             if(!string.IsNullOrEmpty(filtro) && !string.IsNullOrEmpty(valor))
             {
@@ -34,15 +36,13 @@ namespace XGame.Infra.Persistence.Repositories
                     jogadores = jogadores.Where(x => x.Email.Endereco.Contains(valor));
                 }
 
-                if (filtro.Equals("status"))
-                {
-                    jogadores = jogadores.Where(x => x.Status.Equals(valor));
-                }
-
-                return jogadores.AsParallel().ToList();
+                return jogadores
+                    .ToList()
+                    .Select(jogador => (JogadorResponse)jogador)
+                    .ToList();
             }
 
-            return new List<Jogador>();
+            return new List<JogadorResponse>();
         }
 
     }

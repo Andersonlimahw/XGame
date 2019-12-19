@@ -112,5 +112,18 @@ namespace XGame.Domain.Services
             _repositoryJogador.Remover(jogador);
             return new ResponseBase();
         }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="filtro">valores possíveis, nome, email</param>
+        /// <param name="valor"></param>
+        /// <returns></returns>
+        public List<JogadorResponse> Filtrar(string filtro, string valor)
+        {
+            // Converte cada jogador para um JogadorResponse.
+            return _repositoryJogador.Filtrar(filtro, valor)
+                .ToList();
+        }
     }
 }

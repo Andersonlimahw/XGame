@@ -9,6 +9,11 @@ namespace XGame.Domain.Entities
 {
     public class Jogador : EntityBase
     {
+        protected Jogador()
+        {
+
+        }
+
         public Jogador(Email email, string senha, Nome nome)
         {
             Id = Guid.NewGuid();

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using XGame.Domain.Arguments.Base;
 using XGame.Domain.Arguments.Jogador;
+using XGame.Domain.Entities;
 using XGame.Domain.Interfaces.Repositories.Base;
 
 namespace XGame.Domain.Interfaces.Services
@@ -17,5 +18,7 @@ namespace XGame.Domain.Interfaces.Services
         IEnumerable<JogadorResponse> ListarJogador();
 
         ResponseBase Excluir(Guid id);
+
+        List<JogadorResponse> Filtrar(string filtro, string valor);
     }
 }
