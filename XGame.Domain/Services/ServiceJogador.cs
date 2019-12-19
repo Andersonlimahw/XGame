@@ -29,6 +29,11 @@ namespace XGame.Domain.Services
             Nome nome = new Nome(request.PrimeiroNome, request.UltimoNome);
             Jogador jogador = new Jogador(email, request.Senha, nome);
 
+            if(_repositoryJogador.Existe(x => x.Email.Endereco == request.Email))
+            {
+                AddNotification("E-mail", $"o endereço de e-mail {request.Email}, já existe.");
+            }
+
             if (this.IsInvalid())
             {
                 return null;
