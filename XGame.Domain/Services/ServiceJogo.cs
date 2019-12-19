@@ -57,6 +57,7 @@ namespace XGame.Domain.Services
             if (request == null)
             {
                 AddNotification("AlterarJogoResponse", "É obrigatório!");
+                return null;
             }
 
             Jogo jogo = _repositoryJogo.ObterPorId(request.Id);
@@ -84,14 +85,32 @@ namespace XGame.Domain.Services
             return (AlterarJogoResponse)jogo;
         }
 
-        public ExcluirJogoResponse Excluir(Guid id)
+        public ExcluirJogoResponse Excluir(Guid request)
         {
-            throw new NotImplementedException();
+            if (request == null)
+            {
+                AddNotification("Id", "É obrigatório!");
+                return null;
+            }
+
+            Jogo jogo = _repositoryJogo.ObterPorId(request);
+
+            if (jogo == null)
+            {
+                AddNotification("Jogo", $"O Jogo com o id {request}, não foi encontrado!");
+                return null;
+            }
+
+            _repositoryJogo.Remover(jogo);
+            return (ExcluirJogoResponse)jogo;
         }
 
         public IEnumerable<JogoResponse> Listar()
         {
-            throw new NotImplementedException();
+            return _repositoryJogo.Listar()
+                .ToList()
+                .Select(jogo => (JogoResponse)jogo)
+                .ToList();
         }
     }
 }

@@ -1,20 +1,20 @@
 ﻿using System;
+using XGame.Domain.Entities;
 
 namespace XGame.Domain.Arguments.Jogo
 {
     public class ExcluirJogoResponse
     {
         public Guid Id { get; set; }
-        public string Nome { get; set; }
+        public string Message { get; set; }
 
-        public string Descricao { get; set; }
-
-        public string Produtora { get; set; }
-
-        public string Distribuidora { get; set; }
-
-        public string Genero { get; set; }
-
-        public string Site { get; set; }
+        public static explicit operator ExcluirJogoResponse(Entities.Jogo entity)
+        {
+            return new ExcluirJogoResponse()
+            {
+                Id = entity.Id,
+                Message = $"Jogo {entity.Nome} removido com sucesso!"
+            };
+        }
     }
 }
