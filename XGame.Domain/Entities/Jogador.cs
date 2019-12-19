@@ -11,6 +11,7 @@ namespace XGame.Domain.Entities
     {
         public Jogador(Email email, string senha, Nome nome)
         {
+            Id = Guid.NewGuid();
             Email = email;
             Senha = senha;
             Nome =  nome;
