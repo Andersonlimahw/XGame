@@ -9,6 +9,7 @@ using XGame.Infra.Transactions;
 
 namespace XGame.Api.Controllers
 {
+    [Authorize]
     [RoutePrefix("api/jogador")]
     public class JogadorController : ControllerBase
     {
