@@ -19,7 +19,7 @@ namespace XGame.Api.Controllers
             _serviceJogador = serviceJogador;
         }
 
-        [Route("Adicionar")]
+        [Route("adicionar")]
         [HttpPost]
         public async Task<HttpResponseMessage> Adicionar(AdicionarJogadorRequest request)
         {
@@ -35,7 +35,7 @@ namespace XGame.Api.Controllers
             }
         }
 
-        [Route("Listar")]
+        [Route("listar")]
         [HttpGet]
         public async Task<HttpResponseMessage> Listar()
         {
@@ -51,7 +51,7 @@ namespace XGame.Api.Controllers
             }
         }
       
-        [Route("Filtrar")]
+        [Route("filtrar")]
         [HttpGet]
         public async Task<HttpResponseMessage> Filtrar(string filtro, string valor)
         {

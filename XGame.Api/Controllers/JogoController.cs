@@ -3,13 +3,13 @@ using System.Net.Http;
 using System.Threading.Tasks;
 using System.Web.Http;
 using XGame.Api.Controllers.Base;
-using XGame.Domain.Arguments.Jogador;
 using XGame.Domain.Arguments.Jogo;
 using XGame.Domain.Interfaces.Services;
 using XGame.Infra.Transactions;
 
 namespace XGame.Api.Controllers
 {
+    [Authorize]
     [RoutePrefix("api/jogo")]
     public class JogoController : ControllerBase
     {
@@ -20,7 +20,7 @@ namespace XGame.Api.Controllers
             _serviceJogo = serviceJogo;
         }
 
-        [Route("Adicionar")]
+        [Route("adicionar")]
         [HttpPost]
         public async Task<HttpResponseMessage> Adicionar(AdicionarJogoRequest request)
         {
@@ -36,7 +36,7 @@ namespace XGame.Api.Controllers
             }
         }
 
-        [Route("Alterar")]
+        [Route("alterar")]
         [HttpPut]
         public async Task<HttpResponseMessage> Alterar(AlterarJogoRequest request)
         {
@@ -52,7 +52,7 @@ namespace XGame.Api.Controllers
             }
         }
 
-        [Route("Excluir")]
+        [Route("excluir")]
         [HttpDelete]
         public async Task<HttpResponseMessage> Excluir(Guid id)
         {
@@ -68,7 +68,7 @@ namespace XGame.Api.Controllers
             }
         }
 
-        [Route("Listar")]
+        [Route("listar")]
         [HttpGet]
         public async Task<HttpResponseMessage> Listar()
         {

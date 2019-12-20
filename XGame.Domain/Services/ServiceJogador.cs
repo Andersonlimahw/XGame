@@ -67,7 +67,13 @@ namespace XGame.Domain.Services
                 return null;
             }
             // Autentica
-            jogador = _repositoryJogador.ObterPor(x => x.Email.Endereco ==  jogador.Email.Endereco, x => x.Senha == jogador.Senha);
+            jogador = _repositoryJogador.ObterPor(x => x.Email.Endereco ==  request.Email && x.Senha == request.Senha);
+            if (jogador == null)
+            {
+                AddNotification("Jogador", $"Jogador não encontrado com o e-mail {request.Email}");
+                return null;
+            }
+
             return (AutenticarJogadorResponse)jogador;
         }
 
