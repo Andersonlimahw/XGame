@@ -12,14 +12,14 @@ namespace XGame.Infra.Migrations
                 c => new
                 {
                     Id = c.Guid(nullable: false),
-                    EMAIL = c.String(nullable: false, maxLength: 200),
-                    PRIMEIRO_NOME = c.String(nullable: false, maxLength: 50),
-                    ULTIMO_NOME = c.String(maxLength: 100),
-                    SENHA = c.String(nullable: false, maxLength: 100),
-                    STATUS = c.Int(nullable: false),
+                    Email = c.String(nullable: false, maxLength: 200),
+                    PrimeiroNome = c.String(nullable: false, maxLength: 50),
+                    UltimoNome = c.String(maxLength: 100),
+                    Senha = c.String(nullable: false, maxLength: 100),
+                    Status = c.Int(nullable: false),
                 })
                 .PrimaryKey(t => t.Id)
-                .Index(t => t.EMAIL, unique: true, name: "UK_JOGADOR_EMAIL");
+                .Index(t => t.Email, unique: true, name: "UK_JOGADOR_EMAIL");
             
             CreateTable(
                 "dbo.Plataforma",

@@ -54,7 +54,6 @@ namespace XGame.Domain.Services
             }
 
             Email email = new Email(request?.Email);
-            Nome nome = new Nome("Anderson", "Lima");
             Jogador jogador = new Jogador(
                 email,
                 request.Senha

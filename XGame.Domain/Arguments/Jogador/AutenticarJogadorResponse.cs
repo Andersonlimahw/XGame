@@ -1,5 +1,4 @@
 ﻿using System;
-using XGame.Domain.Entities;
 using XGame.Domain.Interfaces.Arguments;
 
 namespace XGame.Domain.Arguments.Jogador
