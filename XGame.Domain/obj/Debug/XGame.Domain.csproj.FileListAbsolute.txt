@@ -8,9 +8,9 @@ C:\Users\ander\Desktop\projetos-lima\C#\XGame\XGame.Domain\bin\Debug\System.Diag
 C:\Users\ander\Desktop\projetos-lima\C#\XGame\XGame.Domain\bin\Debug\EntityFramework.xml
 C:\Users\ander\Desktop\projetos-lima\C#\XGame\XGame.Domain\bin\Debug\EntityFramework.SqlServer.xml
 C:\Users\ander\Desktop\projetos-lima\C#\XGame\XGame.Domain\bin\Debug\System.Diagnostics.DiagnosticSource.xml
+C:\Users\ander\Desktop\projetos-lima\C#\XGame\XGame.Domain\obj\Debug\XGame.Domain.csprojAssemblyReference.cache
 C:\Users\ander\Desktop\projetos-lima\C#\XGame\XGame.Domain\obj\Debug\XGame.Domain.Resources.Message.resources
 C:\Users\ander\Desktop\projetos-lima\C#\XGame\XGame.Domain\obj\Debug\XGame.Domain.csproj.GenerateResource.cache
 C:\Users\ander\Desktop\projetos-lima\C#\XGame\XGame.Domain\obj\Debug\XGame.Domain.csproj.CopyComplete
 C:\Users\ander\Desktop\projetos-lima\C#\XGame\XGame.Domain\obj\Debug\XGame.Domain.dll
 C:\Users\ander\Desktop\projetos-lima\C#\XGame\XGame.Domain\obj\Debug\XGame.Domain.pdb
-C:\Users\ander\Desktop\projetos-lima\C#\XGame\XGame.Domain\obj\Debug\XGame.Domain.csprojAssemblyReference.cache
