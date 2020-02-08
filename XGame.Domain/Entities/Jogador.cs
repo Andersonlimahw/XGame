@@ -13,6 +13,18 @@ namespace XGame.Domain.Entities
         {
 
         }
+        public Jogador(Email email, string senha)
+        {
+            Email = email;
+            Senha = senha;
+
+            new AddNotifications<Jogador>(this).IfNullOrInvalidLength(x => x.Senha, 6, 32, "A senha deve ter entre 6 a 32 caracteres");
+
+            if (IsValid())
+            {
+                Senha = Senha.ConvertToMd5();
+            }
+        }
 
         public Jogador(Email email, string senha, Nome nome)
         {

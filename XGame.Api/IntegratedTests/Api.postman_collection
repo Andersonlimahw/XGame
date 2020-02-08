@@ -1,0 +1,657 @@
+{
+	"info": {
+		"_postman_id": "6ec2864f-541f-46ca-b607-ac577df77ca8",
+		"name": "XGame - C# Api",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Autorização",
+			"item": [
+				{
+					"name": "Token",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "51c5dd0d-c07f-4232-8474-8737e0d3eab7",
+								"exec": [
+									"pm.test(\"Set Token\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    var token = jsonData.access_token;",
+									"    pm.environment.set(\"token\", token);",
+									"});",
+									"",
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/x-www-form-urlencoded",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "username",
+									"value": "anderson.lima@lemontech.com",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "123456",
+									"type": "text"
+								},
+								{
+									"key": "grant_type",
+									"value": "password",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{host}}:{{port}}/token",
+							"host": [
+								"{{host}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"token"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Token - 400",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "51c5dd0d-c07f-4232-8474-8737e0d3eab7",
+								"exec": [
+									"pm.test(\"Status code is 400\", function () {",
+									"    pm.response.to.have.status(400);",
+									"});",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/x-www-form-urlencoded"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "username",
+									"value": "anderson.lima@lemontech.com",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "batata",
+									"type": "text"
+								},
+								{
+									"key": "grant_type",
+									"value": "password",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{host}}:{{port}}/token",
+							"host": [
+								"{{host}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"token"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Jogador",
+			"item": [
+				{
+					"name": "Adiconar",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "9d9c583e-3c0d-46dc-9632-54d5abd8ade9",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"pm.test(\"Set Id do delete\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    var id = jsonData.id ? jsonData.id : null;",
+									"    pm.environment.set(\"player_id\", id);",
+									"});",
+									"",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"email\": \"{{new_player_email}}\",\n\t\"senha\": \"teste\",\n\t\"primeiroNome\": \"{{$randomUserName}}\",\n\t\"ultimoNome\": \"{{$randomUserName}}\"\n}"
+						},
+						"url": {
+							"raw": "{{host}}:{{port}}/api/jogador/adicionar",
+							"host": [
+								"{{host}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"api",
+								"jogador",
+								"adicionar"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Adiconar - 400",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "9d9c583e-3c0d-46dc-9632-54d5abd8ade9",
+								"exec": [
+									"pm.test(\"Status code is 400\", function () {",
+									"    pm.response.to.have.status(400);",
+									"});",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "Bearer {{token}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"email\": \"anderson.lima@lemontech.com\",\n\t\"senha\": \"teste\",\n\t\"primeiroNome\": \"Teste 400\",\n\t\"ultimoNome\": \"Final 400\"\n}"
+						},
+						"url": {
+							"raw": "{{host}}:{{port}}/api/jogador/adicionar",
+							"host": [
+								"{{host}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"api",
+								"jogador",
+								"adicionar"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Listar",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "a3b52e72-595d-4093-8d33-93ce408262e1",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{host}}:{{port}}/api/jogador/listar",
+							"host": [
+								"{{host}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"api",
+								"jogador",
+								"listar"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Filtrar - por nome",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "b247629c-500e-4117-999a-0954566947f6",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{host}}:{{port}}/api/jogador/filtrar?filtro=nome&valor=and",
+							"host": [
+								"{{host}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"api",
+								"jogador",
+								"filtrar"
+							],
+							"query": [
+								{
+									"key": "filtro",
+									"value": "nome"
+								},
+								{
+									"key": "valor",
+									"value": "and"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Filtrar - por e-mail",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "ee42dae3-beb4-4a15-a141-32375fb640e5",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "Bearer {{token}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{host}}:{{port}}/api/jogador/filtrar?filtro=email&valor=lemon",
+							"host": [
+								"{{host}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"api",
+								"jogador",
+								"filtrar"
+							],
+							"query": [
+								{
+									"key": "filtro",
+									"value": "email"
+								},
+								{
+									"key": "valor",
+									"value": "lemon"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Jogo",
+			"item": [
+				{
+					"name": "Adiconar",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "e2f644d2-1bb1-4345-bce4-d79463dad3f6",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"pm.test(\"Set Id do delete\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    var id = jsonData.id ? jsonData.id : null;",
+									"    pm.environment.set(\"game_id\", id);",
+									"});",
+									"",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"nome\": \"Naruto ninja Storm, ULTIMATE\",\r\n  \"descricao\": \"jogo de luta baseado no anime, Naruto\",\r\n  \"produtora\": \"bandai namco\",\r\n  \"distribuidora\": \"sony\",\r\n  \"genero\": \"luta e aventura\",\r\n  \"site\": \"bandai.com\"\r\n}"
+						},
+						"url": {
+							"raw": "{{host}}:{{port}}/api/jogo/adicionar",
+							"host": [
+								"{{host}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"api",
+								"jogo",
+								"adicionar"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Alterar",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "e2f644d2-1bb1-4345-bce4-d79463dad3f6",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "Bearer {{token}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"id\": \"7D83A6B6-9AF6-4585-8661-54FA160B8B22\",\r\n  \"nome\": \"Naruto ninja Storm, ULTIMATE\",\r\n  \"descricao\": \"jogo de luta baseado no anime, Naruto\",\r\n  \"produtora\": \"bandai namco\",\r\n  \"distribuidora\": \"sony, bandai\",\r\n  \"genero\": \"luta e aventura\",\r\n  \"site\": \"bandai.com\"\r\n}"
+						},
+						"url": {
+							"raw": "{{host}}:{{port}}/api/jogo/alterar",
+							"host": [
+								"{{host}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"api",
+								"jogo",
+								"alterar"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Listar",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "f3344fdc-bd36-4ca0-a109-57451a93d849",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"email\": \"anderson.lima@lemontech.com\",\n\t\"senha\": \"lemontech\",\n\t\"primeiroNome\": \"Anderson\",\n\t\"ultimoNome\": \"Lima\"\n}"
+						},
+						"url": {
+							"raw": "{{host}}:{{port}}/api/jogo/listar",
+							"host": [
+								"{{host}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"api",
+								"jogo",
+								"listar"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Deletar",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "f1db260c-432e-4877-bcc9-bd330acefbf4",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "Bearer {{token}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{host}}:{{port}}/api/jogo/excluir?id={{game_id}}",
+							"host": [
+								"{{host}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"api",
+								"jogo",
+								"excluir"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "{{game_id}}"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

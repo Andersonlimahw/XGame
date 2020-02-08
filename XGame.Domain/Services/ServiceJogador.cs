@@ -57,8 +57,7 @@ namespace XGame.Domain.Services
             Nome nome = new Nome("Anderson", "Lima");
             Jogador jogador = new Jogador(
                 email,
-                request.Senha, 
-                nome
+                request.Senha
             );
 
             AddNotifications(jogador, email);
@@ -67,7 +66,7 @@ namespace XGame.Domain.Services
                 return null;
             }
             // Autentica
-            jogador = _repositoryJogador.ObterPor(x => x.Email.Endereco ==  request.Email && x.Senha == request.Senha);
+            jogador = _repositoryJogador.ObterPor(x => x.Email.Endereco == jogador.Email.Endereco && x.Senha == jogador.Senha);
             if (jogador == null)
             {
                 AddNotification("Jogador", $"Jogador não encontrado com o e-mail {request.Email}");
