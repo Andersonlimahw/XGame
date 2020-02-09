@@ -181,7 +181,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n\t\"email\": \"{{new_player_email}}\",\n\t\"senha\": \"teste\",\n\t\"primeiroNome\": \"{{$randomUserName}}\",\n\t\"ultimoNome\": \"{{$randomUserName}}\"\n}"
+							"raw": "{\n\t\"email\": \"{{$randomEmail}}\",\n\t\"senha\": \"123456\",\n\t\"primeiroNome\": \"{{$randomUserName}}\",\n\t\"ultimoNome\": \"{{$randomUserName}}\"\n}"
 						},
 						"url": {
 							"raw": "{{host}}:{{port}}/api/jogador/adicionar",
@@ -232,7 +232,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n\t\"email\": \"anderson.lima@lemontech.com\",\n\t\"senha\": \"teste\",\n\t\"primeiroNome\": \"Teste 400\",\n\t\"ultimoNome\": \"Final 400\"\n}"
+							"raw": "{\n\t\"email\": \"anderson.lima@lemontech.com\",\n\t\"senha\": \"123456\",\n\t\"primeiroNome\": \"Teste 400\",\n\t\"ultimoNome\": \"Final 400\"\n}"
 						},
 						"url": {
 							"raw": "{{host}}:{{port}}/api/jogador/adicionar",
@@ -435,7 +435,7 @@
 			"name": "Jogo",
 			"item": [
 				{
-					"name": "Adiconar",
+					"name": "Adiconar - remover registro",
 					"event": [
 						{
 							"listen": "test",
@@ -446,7 +446,7 @@
 									"    pm.response.to.have.status(200);",
 									"});",
 									"",
-									"pm.test(\"Set Id do delete\", function () {",
+									"pm.test(\"Set Id do update and delete\", function () {",
 									"    var jsonData = pm.response.json();",
 									"    var id = jsonData.id ? jsonData.id : null;",
 									"    pm.environment.set(\"game_id\", id);",
@@ -475,7 +475,58 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n  \"nome\": \"Naruto ninja Storm, ULTIMATE\",\r\n  \"descricao\": \"jogo de luta baseado no anime, Naruto\",\r\n  \"produtora\": \"bandai namco\",\r\n  \"distribuidora\": \"sony\",\r\n  \"genero\": \"luta e aventura\",\r\n  \"site\": \"bandai.com\"\r\n}"
+							"raw": "{\r\n  \"nome\": \"{{$randomUserName}} - {{$randomNamePrefix}}\",\r\n  \"descricao\": \"{{$randomBsBuzz}}\",\r\n  \"produtora\": \"{{$randomBs}}\",\r\n  \"distribuidora\": \"{{$randomBs}}\",\r\n  \"genero\": \"{{$randomBsAdjective}}\",\r\n  \"site\": \"{{$randomDomainName}}\"\r\n}"
+						},
+						"url": {
+							"raw": "{{host}}:{{port}}/api/jogo/adicionar",
+							"host": [
+								"{{host}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"api",
+								"jogo",
+								"adicionar"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Adiconar - manter registro",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "e2f644d2-1bb1-4345-bce4-d79463dad3f6",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"nome\": \"{{$randomUserName}} - {{$randomNamePrefix}}\",\r\n  \"descricao\": \"{{$randomBsBuzz}}\",\r\n  \"produtora\": \"{{$randomBs}}\",\r\n  \"distribuidora\": \"{{$randomBs}}\",\r\n  \"genero\": \"{{$randomBsAdjective}}\",\r\n  \"site\": \"{{$randomDomainName}}\"\r\n}"
 						},
 						"url": {
 							"raw": "{{host}}:{{port}}/api/jogo/adicionar",
@@ -525,7 +576,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n  \"id\": \"7D83A6B6-9AF6-4585-8661-54FA160B8B22\",\r\n  \"nome\": \"Naruto ninja Storm, ULTIMATE\",\r\n  \"descricao\": \"jogo de luta baseado no anime, Naruto\",\r\n  \"produtora\": \"bandai namco\",\r\n  \"distribuidora\": \"sony, bandai\",\r\n  \"genero\": \"luta e aventura\",\r\n  \"site\": \"bandai.com\"\r\n}"
+							"raw": "{\r\n  \"id\": \"{{game_id}}\",\r\n  \"nome\": \"{{$randomUserName}} - {{$randomNamePrefix}}\",\r\n  \"descricao\": \"{{$randomBsBuzz}}\",\r\n  \"produtora\": \"{{$randomBs}}\",\r\n  \"distribuidora\": \"{{$randomBs}}\",\r\n  \"genero\": \"luta e aventura\",\r\n  \"site\": \"{{$randomDomainName}}\"\r\n}"
 						},
 						"url": {
 							"raw": "{{host}}:{{port}}/api/jogo/alterar",
