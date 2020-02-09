@@ -51,21 +51,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Migrations\201909211017443_CriandoBanco.cs" />
-    <Compile Include="Migrations\201909211017443_CriandoBanco.Designer.cs">
-      <DependentUpon>201909211017443_CriandoBanco.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201912181343146_MapeamentoPlataforma.cs" />
-    <Compile Include="Migrations\201912181343146_MapeamentoPlataforma.Designer.cs">
-      <DependentUpon>201912181343146_MapeamentoPlataforma.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201912181345430_MapeamentoPlataforma1.cs" />
-    <Compile Include="Migrations\201912181345430_MapeamentoPlataforma1.Designer.cs">
-      <DependentUpon>201912181345430_MapeamentoPlataforma1.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201912192254135_AdicionandoJogo.cs" />
-    <Compile Include="Migrations\201912192254135_AdicionandoJogo.Designer.cs">
-      <DependentUpon>201912192254135_AdicionandoJogo.cs</DependentUpon>
+    <Compile Include="Migrations\202002090050496_Initial.cs" />
+    <Compile Include="Migrations\202002090050496_Initial.Designer.cs">
+      <DependentUpon>202002090050496_Initial.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Persistence\Map\MapJogo.cs" />
@@ -83,26 +71,16 @@
     <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\202002090050496_Initial.resx">
+      <DependentUpon>202002090050496_Initial.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\XGame.Domain\XGame.Domain.csproj">
       <Project>{3A987E12-3CD7-4413-B63D-025447BC20E0}</Project>
       <Name>XGame.Domain</Name>
     </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Migrations\201909211017443_CriandoBanco.resx">
-      <DependentUpon>201909211017443_CriandoBanco.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201912181343146_MapeamentoPlataforma.resx">
-      <DependentUpon>201912181343146_MapeamentoPlataforma.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201912181345430_MapeamentoPlataforma1.resx">
-      <DependentUpon>201912181345430_MapeamentoPlataforma1.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201912192254135_AdicionandoJogo.resx">
-      <DependentUpon>201912192254135_AdicionandoJogo.cs</DependentUpon>
-    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

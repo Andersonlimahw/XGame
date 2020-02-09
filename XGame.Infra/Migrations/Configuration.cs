@@ -6,7 +6,7 @@ namespace XGame.Infra.Migrations
     {
         public Configuration()
         {
-            AutomaticMigrationsEnabled = true;
+            AutomaticMigrationsEnabled = false;
             AutomaticMigrationDataLossAllowed = false;
         }
 

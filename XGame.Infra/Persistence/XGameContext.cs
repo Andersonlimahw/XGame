@@ -11,6 +11,7 @@ namespace XGame.Infra.Persistence
         {
             Configuration.ProxyCreationEnabled = false;
             Configuration.LazyLoadingEnabled = false;
+            Configuration.AutoDetectChangesEnabled = false;
         }
 
         // representações das entidades
